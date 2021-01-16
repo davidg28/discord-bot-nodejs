@@ -29,6 +29,9 @@ function callAPI() {
             // Check button that add to cart
             if (shop_links[0].querySelector('button')) {
               let direct_buy_link = shop_full_specs_link[0].querySelector('a') && shop_full_specs_link[0].querySelector('a').href;
+              // Check exclude products
+              if (direct_buy_link.includes('5358857400') || direct_buy_link.includes('5335621300')) return;
+
               if (direct_buy_link) {
                 direct_buy_link = `https://www.amd.com${direct_buy_link}`;
                 bot.channels.get(Chanel_ID_DIRECT_BUY).send('Direct buy link: ' + direct_buy_link);
